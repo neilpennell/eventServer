@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Slot Plug-in
-Bundle-SymbolicName: com.e2open.smi.rule.resolver.slot
-Bundle-Version: 1.0.0
-Bundle-Vendor: E2OPEN
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Require-Bundle: com.e2open.smi.rule.engine;bundle-version="1.0.0"
-Service-Component: OSGI-INF/components.xml

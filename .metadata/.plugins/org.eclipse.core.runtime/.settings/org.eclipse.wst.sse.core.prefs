@@ -1,3 +1,0 @@
-#Tue Dec 22 19:19:46 CST 2009
-task-tag-projects-already-scanned=smi.osgi.ruleengine,smi.rule.action.addupdateproblem,smi.rule.action.addupdateslotwithvalue,smi.rule.action.builtin,smi.rule.action.changeseverity,smi.rule.action.printtostderr,smi.rule.action.printtostdout,smi.rule.atom,smi.rule.pac,smi.rule.pac.loader,smi.rule.resolver.dnsshortname,smi.rule.resolver.formattedcurrentdatetime,smi.rule.resolver.formattedcurrentdatetimewithparameter,smi.rule.resolver.hostname2hub,smi.rule.resolver.slot,smi.ruleengine
-eclipse.preferences.version=1
