@@ -1,0 +1,4 @@
+Event Server
+
+This will read T/EC events from the specified port.
+Rules will be run against the received events.
