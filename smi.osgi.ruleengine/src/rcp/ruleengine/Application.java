@@ -12,6 +12,7 @@ public class Application implements IApplication {
 	public Object start(IApplicationContext context) throws Exception {
 
 		System.out.println("Starting CEP Server");
+// this is cheesy and should find a better way to do this.
 		Thread.sleep(10 * 1000);
 		while (CEPServer.getServer().isCepServerRunning()) {
 			Thread.sleep(5 * 1000);
