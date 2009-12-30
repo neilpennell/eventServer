@@ -9,13 +9,6 @@ import com.e2open.smi.rule.engine.CEPServer;
  * This class controls all aspects of the application's execution
  */
 public class Application implements IApplication {
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @seeorg.eclipse.equinox.app.IApplication#start(org.eclipse.equinox.app.
-	 * IApplicationContext)
-	 */
 	public Object start(IApplicationContext context) throws Exception {
 
 		System.out.println("Starting CEP Server");
