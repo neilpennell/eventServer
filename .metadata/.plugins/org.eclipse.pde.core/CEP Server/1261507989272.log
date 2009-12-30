@@ -1,0 +1,9 @@
+!SESSION 2009-12-22 12:53:08.729 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Command-line arguments:  -dev file:/home/npennell/workspace/galileo/.metadata/.plugins/org.eclipse.pde.core/CEP Server/dev.properties -os linux -ws gtk -arch x86 -console
+
+!ENTRY org.eclipse.osgi 2 1 2009-12-22 12:53:11.500
+!MESSAGE NLS missing message: SERVICE_REFERENCE_BOUND in: org.eclipse.equinox.internal.ds.SCRmessages

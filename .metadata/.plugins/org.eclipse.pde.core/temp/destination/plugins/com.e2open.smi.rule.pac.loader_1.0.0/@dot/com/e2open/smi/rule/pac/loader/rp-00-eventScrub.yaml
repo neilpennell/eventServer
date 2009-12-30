@@ -1,0 +1,23 @@
+--- !com.e2open.smi.rule.pac.loader.impl.YamlRulePac
+description: Will scrub and augment events
+name: ScrubRules
+rules: 
+  - !com.e2open.smi.rule.pac.loader.impl.YamlRule
+    criteria: "insert into Scrubbed select * from Event(attribute('scrub') != '1')"
+    description: clean and augment events and insert them into a new stream called scrubbed
+    name: "ScrubRP:ScrubStream"
+    serialActions: 
+      - !com.e2open.smi.rule.pac.loader.impl.YamlActionInstance
+        actionDefinition: AddUpdateSlotWithValue
+        description: "Removes known E2open Domain names for hostname, add hubname"
+        name: "Internal:scrubEvent"
+        parameters: !java.util.LinkedHashMap
+          hostname: "&e2openDNSShortName'hostname';"
+          hubname: "&hostname2hub'hostname';"
+          scrub: "1"
+      - !com.e2open.smi.rule.pac.loader.impl.YamlActionInstance
+        actionDefinition: ResendEvent
+        description: Submits only New events
+        name: "Internal:ResendNewEvent"
+        parameters: !java.util.LinkedHashMap
+          SUBMIT_ACTION: NEW

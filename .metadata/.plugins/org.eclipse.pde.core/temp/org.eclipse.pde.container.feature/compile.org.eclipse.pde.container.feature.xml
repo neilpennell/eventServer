@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Compile org.eclipse.pde.container.feature" default="main">
+	<target name="main">
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.atom" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.ruleengine" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.action.changeseverity" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.resolver.formattedcurrentdatetimewithparameter" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.resolver.dnsshortname" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.resolver.hostname2hub" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.resolver.formattedcurrentdatetime" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.action.printtostderr" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.action.addupdateproblem" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.resolver.slot" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.action.addupdateslotwithvalue" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.action.printtostdout" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.action.builtin" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../com.e2open.smi.rule.pac.loader" target="build.jars"/>
+		<ant antfile="build.xml" dir="../../../../../rcp.ruleengine" target="build.jars"/>
+	</target>
+</project>

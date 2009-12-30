@@ -1,0 +1,26 @@
+"Internal:HBTOProblem": !com.e2open.smi.rule.pac.loader.impl.Actor
+  actionDefinition: AddUpdateProblem
+  description: Create a problem for HBTO that are not clearing events
+  name: "Internal:HBTOProblem"
+  parameters: 
+    myAttribute: "value for my attribute &slot.severity; &formattedCurrentDateTime;"
+    TITLE: "HBTO for host=&slot.hostname;"
+    CORRELATOR: "&slot.severity; &slot.type; &slot.hostname;"
+    STATUS: OPEN
+    OWNER: system
+"Internal:PrintToStdErr": !com.e2open.smi.rule.pac.loader.impl.Actor
+  actionDefinition: PrintToStdErr
+  description: Writes Event to STDERR
+  name: "Internal:PrintToStdErr"
+"Internal:HBTOCloseProblem": !com.e2open.smi.rule.pac.loader.impl.Actor
+  actionDefinition: AddUpdateProblem
+  description: Close a Problem when a clearing event arrives
+  name: "Internal:HBTOCloseProblem"
+  parameters: 
+    CORRELATOR: "&slot.severity; &slot.type; &slot.hostname;"
+    STATUS: CLOSED
+    OWNER: "&slot.owner;"
+"Internal:PrintToStdOut": !com.e2open.smi.rule.pac.loader.impl.Actor
+  actionDefinition: PrintToStdOut
+  description: Writes Event to STDOUT
+  name: "Internal:PrintToStdOut"

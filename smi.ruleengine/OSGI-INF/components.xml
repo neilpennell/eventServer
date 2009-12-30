@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="ruleengine.service" immediate="true">
+	<implementation class="com.e2open.smi.rule.engine.CEPServer" />
+	<service>
+		<provide interface="com.e2open.smi.rule.engine.CEPServer" />
+	</service>
+	<reference name="logger" 
+				interface="java.util.logging.Logger"
+				target="(name=com.e2open.smi.rule.engine)" 
+				cardinality="0..1" 
+				policy="dynamic" 
+				bind="bindLogger" 
+				unbind="unbindLogger" />
+	<reference name="rulepacs" 
+				interface="com.e2open.smi.rule.engine.rules.RulePacDefinition"
+				cardinality="0..n" 
+				policy="dynamic" 
+				bind="bindRulePac" 
+				unbind="unbindRulePac" />
+	<reference name="actions" 
+				interface="com.e2open.smi.rule.engine.rules.Action"
+				cardinality="0..n" 
+				policy="dynamic" 
+				bind="bindAction" 
+				unbind="unbindAction" />
+
+	<reference name="expressionResolvers" 
+				interface="com.e2open.smi.rule.engine.rules.ExpressionResolver"
+				cardinality="0..n" 
+				policy="dynamic" 
+				bind="bindExpressionResolver" 
+				unbind="unbindExpressionResolver" />
+
+</component>

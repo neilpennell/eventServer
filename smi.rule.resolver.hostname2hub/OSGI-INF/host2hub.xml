@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.e2open.smi.rule.resolver.hostname2hub">
+   <implementation class="com.e2open.smi.rule.resolver.hostname2hub.Host2hub"/>
+   <service>
+      <provide interface="com.e2open.smi.rule.engine.rules.ExpressionResolver"/>
+   </service>
+</scr:component>

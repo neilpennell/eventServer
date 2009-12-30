@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="ruleengine.service" immediate="true">
+	<implementation class="com.e2open.smi.rule.action.builtin.ResendEvent" />
+	<service>
+		<provide interface="com.e2open.smi.rule.engine.rules.Action" />
+	</service>
+</component>

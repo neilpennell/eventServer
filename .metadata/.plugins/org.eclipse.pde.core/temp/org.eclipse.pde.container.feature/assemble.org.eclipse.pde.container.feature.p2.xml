@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Publish p2 metadata" default="main">
+	<property name="launcherName" value="CEP"/>
+	<property name="launcherProvider" value="org.eclipse.equinox.executable"/>
+	<property name="p2.build.repo" value="file:${buildDirectory}/buildRepo"/>
+	<property name="assemblyTempDir" value="${buildDirectory}/tmp"/>
+	<property name="jarProcessor.sign" value="false"/>
+	<available property="customAssembly" file="${builder}/customAssembly.xml" value="${builder}/customAssembly.xml"/>
+	<property name="p2.product.qualifier" value="200912220919"/>
+
+	<macrodef name="customGather">
+		<attribute name="dir" />
+		<attribute name="propertyName" />
+		<attribute name="propertyValue" />
+		<attribute name="subFolder" />
+		<attribute name="projectName" />
+		<sequential>
+			<ant antfile="build.xml" dir="@{dir}" target="publish.bin.parts">
+				<property name="@{propertyName}" value="@{propertyValue}"/>
+			</ant>
+			<antcall target="customAssembly">
+				<param name="target.folder" value="@{propertyValue}@{subFolder}"/>
+				<param name="projectLocation" value="${basedir}/@{dir}"/>
+				<param name="@{propertyName}" value="@{propertyValue}"/>
+				<param name="customTarget" value="gather.bin.parts"/>
+				<param name="projectName" value="@{projectName}"/>
+			</antcall>
+		</sequential>
+	</macrodef>
+
+	<target name="main">
+		<antcall target="gather.bin.parts"/>
+		<antcall target="customAssembly">
+			<param name="customTarget" value="post.gather.bin.parts"/>
+		</antcall>
+
+
+		<antcall target="generate.p2.metadata"/>
+	</target>
+
+	<target name="gather.bin.parts">
+		<customGather dir="../../../../../com.e2open.smi.rule.action.addupdateproblem" projectName="com.e2open.smi.rule.action.addupdateproblem_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.action.addupdateslotwithvalue" projectName="com.e2open.smi.rule.action.addupdateslotwithvalue_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.action.builtin" projectName="com.e2open.smi.rule.action.builtin_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.action.changeseverity" projectName="com.e2open.smi.rule.action.changeseverity_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.action.printtostderr" projectName="com.e2open.smi.rule.action.printtostderr_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.action.printtostdout" projectName="com.e2open.smi.rule.action.printtostdout_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.atom" projectName="com.e2open.smi.rule.atom_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.ruleengine" projectName="com.e2open.smi.rule.engine_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.pac.loader" projectName="com.e2open.smi.rule.pac.loader_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.resolver.dnsshortname" projectName="com.e2open.smi.rule.resolver.dnsshortname_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.resolver.formattedcurrentdatetime" projectName="com.e2open.smi.rule.resolver.formattedcurrentdatetime_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.resolver.formattedcurrentdatetimewithparameter" projectName="com.e2open.smi.rule.resolver.formattedcurrentdatetimewithparameter_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.resolver.hostname2hub" projectName="com.e2open.smi.rule.resolver.hostname2hub_1.0.0.200912220919" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../com.e2open.smi.rule.resolver.slot" projectName="com.e2open.smi.rule.resolver.slot_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="../../../../../rcp.ruleengine" projectName="rcp.ruleengine_1.0.0" propertyName="destination.temp.folder" propertyValue="${eclipse.plugins}" subFolder="" />
+		<customGather dir="" projectName="org.eclipse.pde.container.feature_1.0" propertyName="feature.base" propertyValue="${eclipse.base}" subFolder="/features" />
+		<eclipse.publish.featuresAndBundles repository="${p2.build.repo}" site="${p2.category.site}" category="${p2.category.definition}" siteQualifier="${p2.category.prefix}">
+			<bundles dir="/usr/local/eclipse/plugins" includes="javax.servlet_2.5.0.v200806031605.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.apache.commons.logging_1.1.1.v200904062255.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.core.contenttype_3.4.1.R35x_v20090826-0451.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.core.jobs_3.4.100.v20090429-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.core.runtime_3.5.0.v20090525.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.core.runtime.compatibility.registry_3.2.200.v20090429-1800"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.app_1.2.0.v20090520-1800.jar"			/>
+			<bundles dir="/home/npennell/.eclipse/org.eclipse.platform_3.5.0_185596441/plugins" includes="org.eclipse.equinox.cm_1.0.100.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.common_3.5.1.R35x_v20090807-1100.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.ds_1.1.1.R35x_v20090806.jar"			/>
+			<bundles dir="/home/npennell/.eclipse/org.eclipse.platform_3.5.0_185596441/plugins" includes="org.eclipse.equinox.event_1.1.100.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.http.jetty_2.0.0.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.http.registry_1.0.200.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.http.servlet_1.0.200.v20090520-1800.jar"			/>
+			<bundles dir="/home/npennell/.eclipse/org.eclipse.platform_3.5.0_185596441/plugins" includes="org.eclipse.equinox.log_1.2.0.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.preferences_3.2.300.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.registry_3.4.100.v20090520-1800.jar"			/>
+			<bundles dir="/home/npennell/.eclipse/org.eclipse.platform_3.5.0_185596441/plugins" includes="org.eclipse.equinox.transforms.hook_1.0.100.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.util_1.0.100.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.osgi_3.5.1.R35x_v20090827.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.osgi.services_3.2.0.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.osgi.util_3.2.0.v20090520-1800.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.mortbay.jetty.server_6.1.15.v200905151201.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.mortbay.jetty.util_6.1.15.v200905182336.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.launcher_1.0.201.R35x_v20090715.jar"			/>
+			<bundles dir="/usr/local/eclipse/plugins" includes="org.eclipse.equinox.launcher.gtk.linux.x86_1.0.200.v20090520"			/>
+		</eclipse.publish.featuresAndBundles>
+	</target>
+
+	<target name="customAssembly" if="customAssembly">
+		<ant antfile="${customAssembly}" target="${customTarget}" inheritAll="true"/>
+	</target>
+
+	<target name="sign.p2.repository">
+	</target>
+
+	<target name="generate.p2.metadata">
+		<property name="p2.flavor" value="tooling"/>
+		<eclipse.brand.p2.artifacts  launcherName="${launcherName}" config="linux.gtk.x86" iconsList="${launcherIcons}" launcherProvider="${launcherProvider}" productId="ruleengine" productVersion="1.0.0" repository="${p2.build.repo}" tempDirectory="${assemblyTempDir}"		/>
+		<delete dir="${assemblyTempDir}/p2.branding"/>
+
+		<copy file="/home/npennell/workspace/galileo/rcp.ruleengine/cepserver.product" tofile="/home/npennell/workspace/galileo/.metadata/.plugins/org.eclipse.pde.core/temp/org.eclipse.pde.container.feature/features/org.eclipse.pde.build.container.feature/product/cepserver.product" overwrite="true"/>
+		<replace  file="/home/npennell/workspace/galileo/.metadata/.plugins/org.eclipse.pde.core/temp/org.eclipse.pde.container.feature/features/org.eclipse.pde.build.container.feature/product/p2.inf" token="@FLAVOR@" value="${p2.flavor}"		/>
+		<eclipse.idReplacer productFilePath="/home/npennell/workspace/galileo/.metadata/.plugins/org.eclipse.pde.core/temp/org.eclipse.pde.container.feature/features/org.eclipse.pde.build.container.feature/product/cepserver.product"
+		                    selfVersion="1.0.0" 
+		                    pluginIds="com.e2open.smi.rule.action.addupdateproblem:0.0.0,1.0.0,com.e2open.smi.rule.action.addupdateslotwithvalue:0.0.0,1.0.0,com.e2open.smi.rule.action.builtin:0.0.0,1.0.0,com.e2open.smi.rule.action.changeseverity:0.0.0,1.0.0,com.e2open.smi.rule.action.printtostderr:0.0.0,1.0.0,com.e2open.smi.rule.action.printtostdout:0.0.0,1.0.0,com.e2open.smi.rule.atom:0.0.0,1.0.0,com.e2open.smi.rule.engine:0.0.0,1.0.0,com.e2open.smi.rule.pac.loader:0.0.0,1.0.0,com.e2open.smi.rule.resolver.dnsshortname:0.0.0,1.0.0,com.e2open.smi.rule.resolver.formattedcurrentdatetime:0.0.0,1.0.0,com.e2open.smi.rule.resolver.formattedcurrentdatetimewithparameter:0.0.0,1.0.0,com.e2open.smi.rule.resolver.hostname2hub:0.0.0,1.0.0.200912220919,com.e2open.smi.rule.resolver.slot:0.0.0,1.0.0,javax.servlet:0.0.0,2.5.0.v200806031605,org.apache.commons.logging:0.0.0,1.0.4.v200904062259,org.eclipse.core.contenttype:0.0.0,3.4.1.R35x_v20090826-0451,org.eclipse.core.jobs:0.0.0,3.4.100.v20090429-1800,org.eclipse.core.runtime:0.0.0,3.5.0.v20090525,org.eclipse.core.runtime.compatibility.registry:0.0.0,3.2.200.v20090429-1800,org.eclipse.equinox.app:0.0.0,1.2.0.v20090520-1800,org.eclipse.equinox.cm:0.0.0,1.0.100.v20090520-1800,org.eclipse.equinox.common:0.0.0,3.5.1.R35x_v20090807-1100,org.eclipse.equinox.ds:0.0.0,1.1.1.R35x_v20090806,org.eclipse.equinox.event:0.0.0,1.1.100.v20090520-1800,org.eclipse.equinox.http.jetty:0.0.0,2.0.0.v20090520-1800,org.eclipse.equinox.http.registry:0.0.0,1.0.200.v20090520-1800,org.eclipse.equinox.http.servlet:0.0.0,1.0.200.v20090520-1800,org.eclipse.equinox.log:0.0.0,1.2.0.v20090520-1800,org.eclipse.equinox.preferences:0.0.0,3.2.300.v20090520-1800,org.eclipse.equinox.registry:0.0.0,3.4.100.v20090520-1800,org.eclipse.equinox.transforms.hook:0.0.0,1.0.100.v20090520-1800,org.eclipse.equinox.util:0.0.0,1.0.100.v20090520-1800,org.eclipse.osgi:0.0.0,3.5.1.R35x_v20090827,org.eclipse.osgi.services:0.0.0,3.2.0.v20090520-1800,org.eclipse.osgi.util:0.0.0,3.2.0.v20090520-1800,org.mortbay.jetty.server:0.0.0,6.1.15.v200905151201,org.mortbay.jetty.util:0.0.0,6.1.15.v200905182336,rcp.ruleengine:0.0.0,1.0.0,"/>
+		<p2.publish.product flavor="${p2.flavor}" repository="${p2.build.repo}" productFile="/home/npennell/workspace/galileo/.metadata/.plugins/org.eclipse.pde.core/temp/org.eclipse.pde.container.feature/features/org.eclipse.pde.build.container.feature/product/cepserver.product"		>
+			<config os="linux" ws="gtk" arch="x86"		/>
+			<advice kind="featureVersions" file="/home/npennell/workspace/galileo/.metadata/.plugins/org.eclipse.pde.core/temp/org.eclipse.pde.container.feature/finalFeaturesVersions.properties"		/>
+			<advice kind="pluginVersions" file="/home/npennell/workspace/galileo/.metadata/.plugins/org.eclipse.pde.core/temp/org.eclipse.pde.container.feature/finalPluginsVersions.properties"		/>
+		</p2.publish.product>
+
+		<p2.mirror>
+			<slicingOptions includeNonGreedy="false"		/>
+			<source location="${p2.build.repo}"		/>
+			<destination  location="${p2.build.repo}" kind="metadata"		/>
+	<destination  location="${p2.build.repo}" kind="artifact"		/>
+			<iu id="ruleengine" version="1.0.0"		/>
+		</p2.mirror>
+	</target>
+</project>

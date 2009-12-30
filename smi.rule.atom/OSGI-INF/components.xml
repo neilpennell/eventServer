@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="atom.service" immediate="true">
+	<implementation class="com.e2open.smi.rule.atom.Atom" />
+	<service>
+		<provide interface="com.e2open.smi.rule.atom.Atom" />
+	</service>
+	<!--
+		
+	<reference name="logger" 
+				interface="java.util.logging.Logger"
+				target="(name=com.e2open.smi.rule.atom)" 
+				cardinality="0..1" 
+				policy="dynamic" 
+				bind="bindLogger" 
+				unbind="unbindLogger" />
+-->
+
+	<reference name="httpserver" 
+				interface="org.osgi.service.http.HttpService"
+				cardinality="0..1" 
+				policy="dynamic" 
+				bind="bindHTTPServer" 
+				unbind="unbindHTTPServer" />
+
+	<reference name="atomfeeds" 
+				interface="com.e2open.smi.rule.atom.AtomFeedPublisher"
+				cardinality="0..n" 
+				policy="dynamic" 
+				bind="bindFeedPublisher" 
+				unbind="unbindFeedPublisher" />
+
+</component>

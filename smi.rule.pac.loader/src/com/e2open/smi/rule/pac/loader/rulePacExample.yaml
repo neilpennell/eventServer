@@ -1,0 +1,14 @@
+--- !rulepac
+name:
+description:
+rules:
+	- name:
+	  description:
+	  criteria:
+	  actors:
+	    sequential:
+	    	- actor:
+		parallel:
+		 	- actor:
+	
+	

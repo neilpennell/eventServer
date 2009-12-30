@@ -1,0 +1,5 @@
+change to: Action - Actor - Rule
+existing : Action - ActionInstance - Rule
+
+Need to add validation tests to rules both positive and negative
+When system starts run test and report problems as needed.

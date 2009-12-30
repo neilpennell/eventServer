@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="CEPServer" uid="ruleengine" id="rcp.ruleengine.product" application="rcp.ruleengine.application" version="1.0.0" useFeatures="false" includeLaunchers="true">
+
+   <configIni use="default">
+      <macosx>/rcp.ruleengine/config.ini</macosx>
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-console</programArgs>
+      <vmArgs>-Dcom.sun.management.jmxremote.port=1234 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false  -Dorg.osgi.service.http.port=9003 -Xmx512M  -d64</vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages/>
+
+   <launcher name="CEP">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+      <plugin id="com.e2open.smi.rule.action.addupdateproblem" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.action.addupdateslotwithvalue" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.action.builtin" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.action.changeseverity" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.action.printtostderr" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.action.printtostdout" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.atom" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.engine" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.pac.loader" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.resolver.dnsshortname" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.resolver.formattedcurrentdatetime" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.resolver.formattedcurrentdatetimewithparameter" version="1.0.0" />
+      <plugin id="com.e2open.smi.rule.resolver.hostname2hub" version="1.0.0.200912220919" />
+      <plugin id="com.e2open.smi.rule.resolver.slot" version="1.0.0" />
+      <plugin id="javax.servlet" version="2.5.0.v200806031605" />
+      <plugin id="org.apache.commons.logging" version="1.0.4.v200904062259" />
+      <plugin id="org.eclipse.core.contenttype" version="3.4.1.R35x_v20090826-0451" />
+      <plugin id="org.eclipse.core.jobs" version="3.4.100.v20090429-1800" />
+      <plugin id="org.eclipse.core.runtime" version="3.5.0.v20090525" />
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true" version="3.2.200.v20090429-1800" />
+      <plugin id="org.eclipse.equinox.app" version="1.2.0.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.cm" version="1.0.100.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.common" version="3.5.1.R35x_v20090807-1100" />
+      <plugin id="org.eclipse.equinox.ds" version="1.1.1.R35x_v20090806" />
+      <plugin id="org.eclipse.equinox.event" version="1.1.100.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.http.jetty" version="2.0.0.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.http.registry" version="1.0.200.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.http.servlet" version="1.0.200.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.log" version="1.2.0.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.preferences" version="3.2.300.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.registry" version="3.4.100.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.transforms.hook" fragment="true" version="1.0.100.v20090520-1800" />
+      <plugin id="org.eclipse.equinox.util" version="1.0.100.v20090520-1800" />
+      <plugin id="org.eclipse.osgi" version="3.5.1.R35x_v20090827" />
+      <plugin id="org.eclipse.osgi.services" version="3.2.0.v20090520-1800" />
+      <plugin id="org.eclipse.osgi.util" version="3.2.0.v20090520-1800" />
+      <plugin id="org.mortbay.jetty.server" version="6.1.15.v200905151201" />
+      <plugin id="org.mortbay.jetty.util" version="6.1.15.v200905182336" />
+      <plugin id="rcp.ruleengine" version="1.0.0" />
+   </plugins>
+
+
+</product>

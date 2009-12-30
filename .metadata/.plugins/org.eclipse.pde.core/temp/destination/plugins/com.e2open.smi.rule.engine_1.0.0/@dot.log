@@ -1,0 +1,20 @@
+# 12/22/09 9:19:56 AM CST
+# Eclipse Java Compiler 0.972_R35x, 3.5.1 release, Copyright IBM Corp 2000, 2009. All rights reserved.
+----------
+1. WARNING in /home/npennell/workspace/galileo/com.e2open.smi.ruleengine/src/com/e2open/smi/rule/engine/eif/codec/TECEventCodecFactory.java (at line 5)
+	import org.apache.mina.core.buffer.BufferDataException;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.apache.mina.core.buffer.BufferDataException is never used
+----------
+----------
+2. WARNING in /home/npennell/workspace/galileo/com.e2open.smi.ruleengine/src/com/e2open/smi/rule/engine/eif/codec/TECEventEncoder.java (at line 9)
+	import org.apache.mina.filter.codec.ProtocolEncoder;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.apache.mina.filter.codec.ProtocolEncoder is never used
+----------
+3. WARNING in /home/npennell/workspace/galileo/com.e2open.smi.ruleengine/src/com/e2open/smi/rule/engine/eif/codec/TECEventEncoder.java (at line 12)
+	import org.apache.mina.filter.codec.textline.LineDelimiter;
+	       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The import org.apache.mina.filter.codec.textline.LineDelimiter is never used
+----------
+3 problems (3 warnings)

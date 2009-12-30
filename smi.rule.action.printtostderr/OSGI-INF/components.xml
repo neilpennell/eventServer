@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="ruleengine.service" immediate="true">
+	<implementation class="com.e2open.smi.rule.action.PrintToStdErr" />
+	<service>
+		<provide interface="com.e2open.smi.rule.engine.rules.Action" />
+	</service>
+<!-- 
+	<reference name="logger" 
+				interface="java.util.logging.Logger"
+				target="(name=com.e2open.smi.rule.engine)" 
+				cardinality="0..1" 
+				policy="dynamic" 
+				bind="bindLogger" 
+				unbind="unbindLogger" />
+-->
+</component>

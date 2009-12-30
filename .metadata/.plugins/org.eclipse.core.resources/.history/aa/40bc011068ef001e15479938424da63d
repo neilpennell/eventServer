@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Formattedcurrentdatetimewithparameter Plug-in
+Bundle-SymbolicName: smi.rule.resolver.formattedcurrentdatetimewithparameter
+Bundle-Version: 1.0.0
+Bundle-Vendor: E2OPEN
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: com.e2open.smi.rule.engine;bundle-version="1.0.0"
+Service-Component: OSGI-INF/components.xml

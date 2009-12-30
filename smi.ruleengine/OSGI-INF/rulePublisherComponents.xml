@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="ruleAtomPublisher" immediate="true">
+	<implementation class="com.e2open.smi.rule.engine.rules.atom.RuleAtomFeedPublisher" />
+	<service>
+		<provide interface="com.e2open.smi.rule.atom.AtomFeedPublisher" />
+	</service>
+</component>

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Hostname2hub
+Bundle-SymbolicName: smi.rule.resolver.hostname2hub
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: E2OPEN
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6 
+Require-Bundle: com.e2open.smi.rule.engine;bundle-version="1.0.0"
+Service-Component: OSGI-INF/host2hub.xml

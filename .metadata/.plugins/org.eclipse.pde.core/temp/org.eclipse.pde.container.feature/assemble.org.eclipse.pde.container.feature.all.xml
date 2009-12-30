@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Assemble All Config of org.eclipse.pde.container.feature" default="main">
+	<macrodef name="assemble">
+		<attribute name="config" />
+		<attribute name="element" />
+		<attribute name="dot" />
+		<attribute name="scriptPrefix" />
+		<sequential>
+			<condition property="defaultAssemble.@{config}" value="defaultAssemble" else="assemble.@{element}@{dot}@{config}"			>
+				<isset property="defaultAssemblyEnabled"/>
+			</condition>
+			<condition property="customOrDefault.@{config}" value="assemble.@{element}@{dot}@{config}" else="${defaultAssemble.@{config}}"			>
+				<isset property="assemble.@{element}@{dot}@{config}"/>
+			</condition>
+			<ant antfile="${customTargets}" target="${customOrDefault.@{config}}">
+				<property name="config" value="@{config}"/>
+				<property name="element" value="@{element}"/>
+				<property name="assembleScriptName" value="@{scriptPrefix}.@{element}@{dot}@{config}.xml"/>
+			</ant>
+		</sequential>
+	</macrodef>
+	<target name="main">
+		<assemble  config="p2" element="org.eclipse.pde.container.feature" dot="." scriptPrefix="assemble"		/>
+		<assemble  config="linux.gtk.x86" element="org.eclipse.pde.container.feature" dot="." scriptPrefix="assemble"		/>
+	</target>
+	<target name="replace.p2.product">
+		<copy file="/home/npennell/workspace/galileo/rcp.ruleengine/cepserver.product" tofile="${buildDirectory}/features/org.eclipse.pde.build.container.feature/product/cepserver.product" overwrite="true"/>
+		<eclipse.idReplacer productFilePath="${buildDirectory}/features/org.eclipse.pde.build.container.feature/product/cepserver.product"
+		                    selfVersion="1.0.0" 
+		                    pluginIds="com.e2open.smi.rule.action.addupdateproblem:0.0.0,1.0.0,com.e2open.smi.rule.action.addupdateslotwithvalue:0.0.0,1.0.0,com.e2open.smi.rule.action.builtin:0.0.0,1.0.0,com.e2open.smi.rule.action.changeseverity:0.0.0,1.0.0,com.e2open.smi.rule.action.printtostderr:0.0.0,1.0.0,com.e2open.smi.rule.action.printtostdout:0.0.0,1.0.0,com.e2open.smi.rule.atom:0.0.0,1.0.0,com.e2open.smi.rule.engine:0.0.0,1.0.0,com.e2open.smi.rule.pac.loader:0.0.0,1.0.0,com.e2open.smi.rule.resolver.dnsshortname:0.0.0,1.0.0,com.e2open.smi.rule.resolver.formattedcurrentdatetime:0.0.0,1.0.0,com.e2open.smi.rule.resolver.formattedcurrentdatetimewithparameter:0.0.0,1.0.0,com.e2open.smi.rule.resolver.hostname2hub:0.0.0,1.0.0.200912220919,com.e2open.smi.rule.resolver.slot:0.0.0,1.0.0,javax.servlet:0.0.0,2.5.0.v200806031605,org.apache.commons.logging:0.0.0,1.0.4.v200904062259,org.eclipse.core.contenttype:0.0.0,3.4.1.R35x_v20090826-0451,org.eclipse.core.jobs:0.0.0,3.4.100.v20090429-1800,org.eclipse.core.runtime:0.0.0,3.5.0.v20090525,org.eclipse.core.runtime.compatibility.registry:0.0.0,3.2.200.v20090429-1800,org.eclipse.equinox.app:0.0.0,1.2.0.v20090520-1800,org.eclipse.equinox.cm:0.0.0,1.0.100.v20090520-1800,org.eclipse.equinox.common:0.0.0,3.5.1.R35x_v20090807-1100,org.eclipse.equinox.ds:0.0.0,1.1.1.R35x_v20090806,org.eclipse.equinox.event:0.0.0,1.1.100.v20090520-1800,org.eclipse.equinox.http.jetty:0.0.0,2.0.0.v20090520-1800,org.eclipse.equinox.http.registry:0.0.0,1.0.200.v20090520-1800,org.eclipse.equinox.http.servlet:0.0.0,1.0.200.v20090520-1800,org.eclipse.equinox.log:0.0.0,1.2.0.v20090520-1800,org.eclipse.equinox.preferences:0.0.0,3.2.300.v20090520-1800,org.eclipse.equinox.registry:0.0.0,3.4.100.v20090520-1800,org.eclipse.equinox.transforms.hook:0.0.0,1.0.100.v20090520-1800,org.eclipse.equinox.util:0.0.0,1.0.100.v20090520-1800,org.eclipse.osgi:0.0.0,3.5.1.R35x_v20090827,org.eclipse.osgi.services:0.0.0,3.2.0.v20090520-1800,org.eclipse.osgi.util:0.0.0,3.2.0.v20090520-1800,org.mortbay.jetty.server:0.0.0,6.1.15.v200905151201,org.mortbay.jetty.util:0.0.0,6.1.15.v200905182336,rcp.ruleengine:0.0.0,1.0.0,"/>
+	</target>
+
+</project>

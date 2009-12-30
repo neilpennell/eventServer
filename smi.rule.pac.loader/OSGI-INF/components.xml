@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component name="publisher-test.driver" immediate="true">
+	<implementation class="com.e2open.smi.rule.pac.loader.RulePacLoader" />
+	<service>
+		<provide interface="com.e2open.smi.rule.pac.loader.RulePacLoader" />
+	</service>
+
+	<!--
+
+		<reference name="logger" interface="java.util.logging.Logger"
+		target="(name=com.e2open.smi.rule.atom)" cardinality="0..1"
+		policy="dynamic" bind="bindLogger" unbind="unbindLogger" />
+	-->
+</component>

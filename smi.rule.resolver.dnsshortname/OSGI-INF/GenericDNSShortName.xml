@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="com.e2open.smi.rule.resolver.dnsshortname.GenericDNSShortName" immediate="true">
+   <implementation class="com.e2open.smi.rule.resolver.dnsshortname.GenericDNSShortName"/>
+   <service>
+      <provide interface="com.e2open.smi.rule.engine.rules.ExpressionResolver"/>
+   </service>
+</component>

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dnsshortname
+Bundle-SymbolicName: smi.rule.resolver.dnsshortname
+Bundle-Version: 1.0.0
+Bundle-Vendor: E2OPEN
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: com.e2open.smi.rule.engine;bundle-version="1.0.0"
+Service-Component: OSGI-INF/E2openDNSShortName.xml, OSGI-INF/GenericDNSShortName.xml

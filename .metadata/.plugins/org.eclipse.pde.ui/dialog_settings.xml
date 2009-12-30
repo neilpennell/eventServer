@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.pde.ui.dialogs.PluginSelectionDialog">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History/&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="39" key="DIALOG_Y_ORIGIN"/>
+			<item value="215" key="DIALOG_X_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		</section>
+	</section>
+	<section name="ProductExportWizard">
+		<item value="false" key="exportSource"/>
+		<item value="true" key="syncProduct"/>
+		<item value="/rcp.ruleengine/cepserver.product" key="productConfig1"/>
+		<item value="Generate source bundles" key="exportSourceFormat"/>
+		<item value="true" key="p2metadata"/>
+		<item value="true" key="exportDirectory"/>
+		<item value="/rcp.ruleengine/cepserver.product" key="productConfig0"/>
+		<item value="/home/npennell/re" key="destination0"/>
+		<item value="true" key="allowBinaryCycles"/>
+		<item value="cep" key="productRoot"/>
+	</section>
+	<section name="org.eclipse.pde.ui.PLUGIN_STATUS_DIALOG">
+		<item value="406" key="DIALOG_WIDTH"/>
+		<item value="64" key="DIALOG_Y_ORIGIN"/>
+		<item value="385" key="DIALOG_HEIGHT"/>
+		<item value="197" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+</section>
